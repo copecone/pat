@@ -1,0 +1,20 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:io.github.copecone.pat.effect////PointingToDeclaration/pat-api/io.github.copecone.pat.effect/index.html
+$dokka.location:io.github.copecone.pat.effect/FireworkSupport///PointingToDeclaration/pat-api/io.github.copecone.pat.effect/-firework-support/index.html
+$dokka.location:io.github.copecone.pat.effect/FireworkSupport/generateFireworkEffect/#kotlin.Boolean#kotlin.Boolean#org.bukkit.FireworkEffect.Type#org.bukkit.Color#org.bukkit.Color/PointingToDeclaration/pat-api/io.github.copecone.pat.effect/-firework-support/generate-firework-effect.html
+$dokka.location:io.github.copecone.pat.effect/FireworkSupport/generateFireworkEffect/#kotlin.Boolean#org.bukkit.FireworkEffect.Type#org.bukkit.Color#org.bukkit.Color/PointingToDeclaration/pat-api/io.github.copecone.pat.effect/-firework-support/generate-firework-effect.html
+$dokka.location:io.github.copecone.pat.effect/FireworkSupport/generateFireworkEffect/#org.bukkit.Color#org.bukkit.Color/PointingToDeclaration/pat-api/io.github.copecone.pat.effect/-firework-support/generate-firework-effect.html
+$dokka.location:io.github.copecone.pat.effect/FireworkSupport/generateFireworkEffect/#org.bukkit.Color/PointingToDeclaration/pat-api/io.github.copecone.pat.effect/-firework-support/generate-firework-effect.html
+$dokka.location:io.github.copecone.pat.effect/FireworkSupport/generateFireworkEffect/#org.bukkit.FireworkEffect.Type#org.bukkit.Color#org.bukkit.Color/PointingToDeclaration/pat-api/io.github.copecone.pat.effect/-firework-support/generate-firework-effect.html
+$dokka.location:io.github.copecone.pat.effect/FireworkSupport/generateFireworkEffect/#org.bukkit.FireworkEffect.Type#org.bukkit.Color/PointingToDeclaration/pat-api/io.github.copecone.pat.effect/-firework-support/generate-firework-effect.html
+$dokka.location:io.github.copecone.pat.util////PointingToDeclaration/pat-api/io.github.copecone.pat.util/index.html
+$dokka.location:io.github.copecone.pat.util//hexToByteArray/kotlin.String#/PointingToDeclaration/pat-api/io.github.copecone.pat.util/hex-to-byte-array.html
+$dokka.location:io.github.copecone.pat.util//isDamageable/org.bukkit.entity.Player#/PointingToDeclaration/pat-api/io.github.copecone.pat.util/is-damageable.html
+$dokka.location:io.github.copecone.pat.util//registerResourcePack/org.bukkit.entity.Player#kotlin.String#kotlin.String/PointingToDeclaration/pat-api/io.github.copecone.pat.util/register-resource-pack.html
+$dokka.location:io.github.copecone.pat.util//useResourcePack/org.bukkit.entity.Player#kotlin.String/PointingToDeclaration/pat-api/io.github.copecone.pat.util/use-resource-pack.html
+$dokka.location:io.github.copecone.pat.util/GitHubSupport///PointingToDeclaration/pat-api/io.github.copecone.pat.util/-git-hub-support/index.html
+$dokka.location:io.github.copecone.pat.util/GitHubSupport/isUpdateExists/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/pat-api/io.github.copecone.pat.util/-git-hub-support/is-update-exists.html
+io.github.copecone.pat.effect
+io.github.copecone.pat.util
+

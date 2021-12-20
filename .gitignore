@@ -1,0 +1,6 @@
+/.gradle
+/.idea
+/pat-api/gradle.properties
+/.debug
+/pat-api/build/
+/build/
