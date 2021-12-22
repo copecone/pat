@@ -27,14 +27,8 @@
 #### Gradle
 
 ```kotlin
-repositories {
-    maven("https://jitpack.io")
-}
-```
-
-```kotlin
 dependencies {
-    implementation("com.github.copecone:pat:<version>")
+    implementation("io.github.copecone:pat-api:<version>")
 }
 ```
 
