@@ -15,7 +15,7 @@ if (secretPropsFile.exists()) {
         ext[name.toString()] = value
     }
 } else {
-    ext["githubUsername"] = System.getenv("GITHUB_USERNAME")
+    ext["githubUsername"] = System.getenv("GITHUB_ACTOR")
     ext["githubToken"] = System.getenv("GITHUB_TOKEN")
 }
 
