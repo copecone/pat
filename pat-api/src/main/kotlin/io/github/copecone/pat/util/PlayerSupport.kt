@@ -19,7 +19,7 @@ private val Player.resourcePacks: MutableMap<String, ByteArray>
  * @param hash 리소스팩의 sha1 해쉬값
  */
 fun Player.registerResourcePack(resourcePack: String, hash: String) {
-    this.resourcePacks[resourcePack] = hash.hexToByteArray()
+    this.resourcePacks[resourcePack] = hash.toByteArray()
 }
 
 /**

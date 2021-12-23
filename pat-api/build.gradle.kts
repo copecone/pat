@@ -1,7 +1,26 @@
+import java.util.*
+
 plugins {
     id("org.jetbrains.dokka") version "1.5.0"
     `maven-publish`
 }
+
+val secretPropsFile = project.rootProject.file("local.properties")
+if (secretPropsFile.exists()) {
+    secretPropsFile.reader().use {
+        Properties().apply {
+            load(it)
+        }
+    }.onEach { (name, value) ->
+        ext[name.toString()] = value
+    }
+} else {
+    ext["githubUsername"] = System.getenv("GITHUB_USERNAME")
+    ext["githubToken"] = System.getenv("GITHUB_TOKEN")
+}
+
+// ext["githubUsername"] = null
+// ext["githubToken"] = null
 
 java {
     toolchain {
@@ -35,16 +54,26 @@ tasks {
     }
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("pat-api") {
-            groupId = project.properties["group"] as String
-            version = project.properties["version"] as String
-            artifactId = "pat-api"
+fun getExtraString(name: String) = ext[name]?.toString()
 
-            from(components["java"])
-            artifact(tasks["sourcesJar"])
-            artifact(tasks["dokkaJar"])
+publishing {
+    repositories {
+        maven {
+            name = "GithubPackages"
+            url = uri("https://maven.pkg.github.com/copecone/pat")
+            credentials/*.runCatching */ {
+                username = getExtraString("githubUsername")
+                password = getExtraString("githubToken")
+            }/*.onFailure {
+                logger.warn("Failed to load github packages credentials, Check the environment variables")
+            }*/
         }
+    }
+
+    publications.withType<MavenPublication> {
+        artifactId = "pat-api"
+        from(components["java"])
+        artifact(tasks["sourcesJar"])
+        artifact(tasks["dokkaJar"])
     }
 }
