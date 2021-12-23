@@ -56,10 +56,6 @@ tasks {
     test {
         outputs.upToDateWhen { false }
     }
-
-    publish {
-        outputs.upToDateWhen { false }
-    }
 }
 
 fun getExtraString(name: String) = ext[name]?.toString()

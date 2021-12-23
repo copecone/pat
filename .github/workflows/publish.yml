@@ -27,6 +27,6 @@ jobs:
       - name: Gradle Build
         run: gradle test
       - name: Publish package
-        run: gradle publish
+        run: gradle publish --rerun-tasks
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
