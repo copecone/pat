@@ -14,4 +14,4 @@ fun String.toByteArray(): ByteArray =
  * [String]으로 저장된 헥스값을 [ByteArray]로 바꾸는 함수
  */
 fun ByteArray.toHexString(): String =
-    BigInteger(this).toString(16)
+    BigInteger(1, this).toString(16)
