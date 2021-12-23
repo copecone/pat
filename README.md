@@ -36,7 +36,6 @@ dependencies {
 
 ### NOTE
 * 라이센스는 GPL-3.0이며 변경 혹은 삭제를 금합니다.
-* implementation 하실 때는 `jitpack` 특성상 `com.github.copecone`으로 불러오나 사용시에는 기존 `Tap` 이용자분들의 편의를 고려해 `io.github.copecone`으로 이용할 수 있도록 만들었습니다.
 * 이 라이브러리는 내부적으로만 `Tap 4.3.0`을 포함하고 있습니다. `Tap`을 사용시 따로 불러오셔야 합니다.
 
 ---
