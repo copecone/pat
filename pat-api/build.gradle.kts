@@ -52,6 +52,14 @@ tasks {
     dokkaHtml.configure {
         outputDirectory.set(project.rootDir.resolve("docs"))
     }
+
+    test {
+        outputs.upToDateWhen { false }
+    }
+
+    publish {
+        outputs.upToDateWhen { false }
+    }
 }
 
 fun getExtraString(name: String) = ext[name]?.toString()
