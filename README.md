@@ -7,7 +7,7 @@
 [![GitHub](https://img.shields.io/github/license/copecone/pat)](https://www.gnu.org/licenses/gpl-3.0.html)
 [![Youtube](https://img.shields.io/badge/youtube-컨트롤D-red.svg?logo=youtube)](https://www.youtube.com/channel/UCixrFCcSLF-E0AjNO9yNaqg)
 
-### [Tap](https://github.com/monun/tap) 확장 라이브러리
+### Paper 확장 라이브러리 ([Tap](https://github.com/monun/tap) 확장 기능 포함)
 
 - 해당 라이브러리는 [`monun`](https://github.com/monun) 본인이 원하지 않을 시 언제든지 사라질 수 있음을 안내드립니다.
 - `Tap 4.3.0`을 내부적으로 포함하고 있습니다.
