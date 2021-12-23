@@ -65,12 +65,12 @@ publishing {
         maven {
             name = "GithubPackages"
             url = uri("https://maven.pkg.github.com/copecone/pat")
-            credentials/*.runCatching */ {
+            credentials.runCatching {
                 username = getExtraString("githubUsername")
                 password = getExtraString("githubToken")
-            }/*.onFailure {
+            }.onFailure {
                 logger.warn("Failed to load github packages credentials, Check the environment variables")
-            }*/
+            }
         }
     }
 
