@@ -3,8 +3,8 @@
 [![Java](https://img.shields.io/badge/java-17-ED8B00.svg?logo=java)](https://www.azul.com/)
 [![Kotlin](https://img.shields.io/badge/kotlin-1.6.0-585DEF.svg?logo=kotlin)](http://kotlinlang.org)
 [![Gradle](https://img.shields.io/badge/gradle-7.3-02303A.svg?logo=gradle)](https://gradle.org)
-[![Jitpack](https://jitpack.io/v/copecone/pat.svg)](https://jitpack.io/#copecone/pat)
 [![GitHub](https://img.shields.io/github/license/copecone/pat)](https://www.gnu.org/licenses/gpl-3.0.html)
+[![Github Packages Publish](https://github.com/copecone/pat/actions/workflows/publish.yml/badge.svg)](https://github.com/copecone/pat/actions/workflows/publish.yml)
 [![Youtube](https://img.shields.io/badge/youtube-컨트롤D-red.svg?logo=youtube)](https://www.youtube.com/channel/UCixrFCcSLF-E0AjNO9yNaqg)
 
 ### Paper 확장 라이브러리 ([Tap](https://github.com/monun/tap) 확장 기능 포함)
