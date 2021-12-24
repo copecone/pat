@@ -19,7 +19,7 @@ jobs:
           echo '::echo::off'
           echo "tag_name=${GITHUB_REF##*/}" >> $GITHUB_ENV
       - name: Delete release tag
-      - uses: dev-drprasad/delete-tag-and-release@v0.2.0
+        uses: dev-drprasad/delete-tag-and-release@v0.2.0
         with:
           delete_release: false
           tag_name: ${{ env.tag_name }}
