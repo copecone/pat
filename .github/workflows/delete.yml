@@ -1,0 +1,27 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Github Release Delete
+
+# Controls when the workflow will run
+on:
+  release:
+    types: [ deleted ]
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Get release details
+        run: |
+          echo '::echo::off'
+          echo "tag_name=${GITHUB_REF##*/}" >> $GITHUB_ENV
+      - name: Delete release tag
+      - uses: dev-drprasad/delete-tag-and-release@v0.2.0
+        with:
+          delete_release: false
+          tag_name: ${{ env.tag_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
