@@ -56,6 +56,10 @@ tasks {
     test {
         outputs.upToDateWhen { false }
     }
+
+    publish {
+        outputs.upToDateWhen { false }
+    }
 }
 
 fun getExtraString(name: String) = ext[name]?.toString()
@@ -74,10 +78,12 @@ publishing {
         }
     }
 
-    publications.withType<MavenPublication> {
-        artifactId = "pat-api"
-        from(components["java"])
-        artifact(tasks["sourcesJar"])
-        artifact(tasks["dokkaJar"])
+    publications {
+        register<MavenPublication>(project.name) {
+            artifactId = project.name
+            from(components["java"])
+            artifact(tasks["sourcesJar"])
+            artifact(tasks["dokkaJar"])
+        }
     }
 }
