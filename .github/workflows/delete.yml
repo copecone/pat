@@ -16,7 +16,6 @@ jobs:
     steps:
       - name: Get release details
         run: |
-          echo '::echo::off'
           echo "tag_name=${GITHUB_REF##*/}" >> $GITHUB_ENV
       - name: Delete release tag
         uses: dev-drprasad/delete-tag-and-release@v0.2.0
