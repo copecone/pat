@@ -45,6 +45,13 @@ tasks {
     publish {
         outputs.upToDateWhen { false }
     }
+
+    register<Test>("publishTest") {
+        outputs.upToDateWhen { false }
+        if (getExtraString("githubActor") == null || getExtraString("githubToken") == null) {
+            logger.error("Publish Test FAILED. Failed to load github packages credentials, Check environment variables")
+        }
+    }
 }
 
 fun getExtraString(name: String) = ext[name]?.toString()
@@ -58,7 +65,7 @@ publishing {
                 username = getExtraString("githubActor")
                 password = getExtraString("githubToken")
             }.onFailure {
-                logger.warn("Failed to load github packages credentials, Check the environment variables")
+                logger.error("Failed to load github packages credentials, Check the environment variables")
             }
         }
     }
