@@ -1,26 +1,11 @@
-import java.util.*
-
 plugins {
     id("org.jetbrains.dokka") version "1.5.0"
     `maven-publish`
 }
 
-val secretPropsFile = project.rootProject.file("local.properties")
-if (secretPropsFile.exists()) {
-    secretPropsFile.reader().use {
-        Properties().apply {
-            load(it)
-        }
-    }.onEach { (name, value) ->
-        ext[name.toString()] = value
-    }
-} else {
-    ext["githubUsername"] = System.getenv("GITHUB_ACTOR")
-    ext["githubToken"] = System.getenv("GITHUB_TOKEN")
-}
-
-// ext["githubUsername"] = null
-// ext["githubToken"] = null
+// GITHUB 설정 불러오기
+ext["githubActor"] = System.getenv("GITHUB_ACTOR")
+ext["githubToken"] = System.getenv("GITHUB_TOKEN")
 
 java {
     toolchain {
@@ -70,7 +55,7 @@ publishing {
             name = "GithubPackages"
             url = uri("https://maven.pkg.github.com/copecone/pat")
             credentials.runCatching {
-                username = getExtraString("githubUsername")
+                username = getExtraString("githubActor")
                 password = getExtraString("githubToken")
             }.onFailure {
                 logger.warn("Failed to load github packages credentials, Check the environment variables")
