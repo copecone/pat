@@ -41,7 +41,7 @@ jobs:
           arguments: dokkaJar
 
   build:
-    needs: [ patApiTest, dokkaJar ]
+    needs: [ patApiTest, dokkaJarTest ]
     runs-on: ubuntu-latest
     if: ${{ success() }}
     steps:
