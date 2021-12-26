@@ -107,7 +107,7 @@ jobs:
         id: check-commit
         with:
           text: ${{ github.event.head_commit.message }}
-          regex: 'Merge pull request #[0-9]+ from [0-9A-z]+\/[0-9A-z]+]dokkaJar$'
+          regex: '^Merge pull request #[0-9]+ from [0-9A-z]+/[0-9A-z]+]dokkaJar$'
           flags: 'g'
       - name: End Job If Is dokkaJar Commit
         if: ${{ steps.check-commit.outputs.match != '' }}
