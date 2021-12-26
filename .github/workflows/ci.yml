@@ -100,6 +100,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Formatting Github Commit Hash
+        run: |
+          commit_hash = cut -c 1-7 <<< '${{ github.sha }}'
+          echo '::set-output name=COMMIT_HASH::${ commit_hash }'
       - name: Create Branch
         uses: peterjgrainger/action-create-branch@v2.0.1
         env:
@@ -134,11 +138,11 @@ jobs:
           add-paths: |
             docs/**
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "[${{ github.sha }}] dokkaJar 업데이트"
+          commit-message: "[${{ steps.createBranch.outputs.COMMIT_HASH }}] dokkaJar 업데이트"
           base: main
           branch: '${{ github.sha }}]dokkaJar'
           delete-branch: true
-          title: "`[${{ github.sha }}] ${{ github.event.head_commit.message }}` dokkaJar 업데이트"
+          title: "`[${{ steps.createBranch.outputs.COMMIT_HASH }}] ${{ github.event.head_commit.message }}` dokkaJar 업데이트"
           body: |
             dokkaJar 업데이트
             - 이 자동 생성된 Pull Request는 현재 커밋의 dokkaJar 실행 결과물입니다
