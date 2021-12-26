@@ -105,7 +105,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: '[${{ github.sha }}]dokkaJar'
+          branch: '${{ github.sha }}]dokkaJar'
 
   pullRequest:
     needs: [ createBranch ]
@@ -114,7 +114,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: '[${{ github.sha }}]dokkaJar'
+          ref: '${{ github.sha }}]dokkaJar'
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
@@ -136,7 +136,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "[${{ github.sha }}] dokkaJar 업데이트"
           base: main
-          branch: '[${{ github.sha }}]dokkaJar'
+          branch: '${{ github.sha }}]dokkaJar'
           delete-branch: true
           title: "`[${{ github.sha }}] ${{ github.event.head_commit.message }}` dokkaJar 업데이트"
           body: |
