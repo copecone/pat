@@ -133,8 +133,8 @@ jobs:
         with:
           arguments: dokkaJar
       - name: Create Pull Request
-      - continue-on-error: true
         uses: peter-evans/create-pull-request@v3
+        continue-on-error: true
         with:
           add-paths: |
             docs/**
