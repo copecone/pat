@@ -110,8 +110,7 @@ jobs:
           regex: '^Merge pull request #[0-9]+ from [0-9A-z]+/[0-9A-z]+]dokkaJar$'
           flags: 'g'
       - name: End Job If Is dokkaJar Commit
-        if: ${{ steps.check-commit.outputs.match != '' }}
-        run: exit 1
+        run: echo ${{ steps.check-commit.outputs.match }}
       - name: Formatting GitHub Commit Hash
         id: format_hash
         run: |
