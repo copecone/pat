@@ -106,7 +106,7 @@ jobs:
         id: format_hash
         run: |
           HASH=$(cut -c 1-7 <<< '${{ github.sha }}')
-          echo '::set-output name=COMMIT_HASH::${ HASH }'
+          echo '::set-output name=COMMIT_HASH::$HASH'
       - name: Create Branch
         uses: peterjgrainger/action-create-branch@v2.0.1
         env:
@@ -136,8 +136,18 @@ jobs:
         with:
           arguments: dokkaJar
       - name: Generate dokkaJar Info
-        run: |
-          printf "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap\" rel=\"stylesheet\">\n<div style=\"font-family: 'Noto Sans KR', sans-serif; font-weight: 400;\">Latest dokkaJar Update<br>\n<strong style=\"font-weight: 700;\">Commit [<a href=\"https://github.com/copecone/pat/commit/${{ github.sha }}\">${{ needs.createBranch.outputs.COMMIT_HASH }}</a>]</strong> ${{ github.event.head_commit.message }}</div>" >> "docs/doc-info.html"
+        uses: DamianReeves/write-file-action@v1.0
+        with:
+          write-mode: overwrite
+          contents: |
+            <link rel="preconnect\" href="https://fonts.googleapis.com">
+            <link rel="preconnect\" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+            <div style="font-family: 'Noto Sans KR', sans-serif; font-weight: 400;">
+            Latest dokkaJar Update<br>
+            <strong style="font-weight: 700;">Commit [<a href="https://github.com/copecone/pat/commit/${{ github.sha }}">${{ needs.createBranch.outputs.COMMIT_HASH }}</a>]</strong>
+            ${{ github.event.head_commit.message }}
+            </div>
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
