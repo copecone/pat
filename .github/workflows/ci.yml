@@ -138,6 +138,7 @@ jobs:
       - name: Generate dokkaJar Info
         uses: DamianReeves/write-file-action@v1.0
         with:
+          path: docs/doc-info.html
           write-mode: overwrite
           contents: |
             <link rel="preconnect\" href="https://fonts.googleapis.com">
