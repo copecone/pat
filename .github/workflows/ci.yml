@@ -112,7 +112,7 @@ jobs:
           branch: '${{ github.sha }}]dokkaJar'
 
   pullRequest:
-    needs: [ createBranch ]
+    needs: [ createBranch, publishTest ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -133,6 +133,7 @@ jobs:
         with:
           arguments: dokkaJar
       - name: Create Pull Request
+      - continue-on-error: true
         uses: peter-evans/create-pull-request@v3
         with:
           add-paths: |
