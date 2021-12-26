@@ -107,10 +107,11 @@ jobs:
         id: check-commit
         with:
           text: ${{ github.event.head_commit.message }}
-          regex: '^Merge pull request #[0-9]+ from [0-9A-z]+/[0-9A-z]+]dokkaJar$'
-          flags: 'g'
+          regex: "^Merge pull request #[0-9]+ from [0-9a-z]+\/[0-9a-z]+\]dokkaJar\n\n`\[[0-9a-z]+\] Merge remote-tracking branch 'origin\/main' into main` dokkaJar 업데이트$"
+          flags: 'gu'
       - name: End Job If Is dokkaJar Commit
-        run: echo ${{ steps.check-commit.outputs.match }}
+        if: ${{ steps.check-commit.outputs.match != '' }}
+        run: exit 1
       - name: Formatting GitHub Commit Hash
         id: format_hash
         run: |
