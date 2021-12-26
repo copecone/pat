@@ -106,7 +106,7 @@ jobs:
         id: format_hash
         run: |
           HASH=$(cut -c 1-7 <<< '${{ github.sha }}')
-          echo '::set-output name=COMMIT_HASH::$HASH'
+          echo '::set-output name=COMMIT_HASH::${HASH}'
       - name: Create Branch
         uses: peterjgrainger/action-create-branch@v2.0.1
         env:
