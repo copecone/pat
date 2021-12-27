@@ -103,7 +103,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Commit Name Debug
-        run: printf "${{ github.event.head_commit.message }}"
+        run: |
+          MESSAGE="${{ github.event.head_commit.message }}"
+          echo $MESSAGE
       - name: Check Commit Name for Prevent Infinite Pull Requests
         uses: actions-ecosystem/action-regex-match@v2
         id: check-commit
