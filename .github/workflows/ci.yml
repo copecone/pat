@@ -105,7 +105,7 @@ jobs:
       - name: Commit Name Debug
         run: |
           MESSAGE="${{ github.event.head_commit.message }}"
-          echo $MESSAGE
+          echo "$MESSAGE"
       - name: Check Commit Name for Prevent Infinite Pull Requests
         uses: actions-ecosystem/action-regex-match@v2
         id: check-commit
