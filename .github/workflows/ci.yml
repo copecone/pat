@@ -99,26 +99,24 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       COMMIT_HASH: ${{ steps.format_hash.outputs.COMMIT_HASH }}
-      COMMIT_NAME: ${{ steps.commit_name.outputs.value }}
+      COMMIT_NAME: ${{ steps.commit_info.outputs.value }}
+      COMMIT_VAILD: ${{ steps.check_commit.outputs.match == '' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Commit Name Set
-        id: commit_name
+      - name: Getting Commit Info
+        id: commit_info
         uses: mkungla/actions-set-text-output@v1
         with:
           text: ${{ github.event.head_commit.message }}
       - name: Check Commit Name for Prevent Infinite Pull Requests
         uses: actions-ecosystem/action-regex-match@v2
-        id: check-commit
+        id: check_commit
         with:
           text: ${{ steps.commit_name.outputs.value }}
           regex: >-
             ^Merge pull request #[0-9]+ from [0-9a-z]+\/[0-9a-z]+\]dokkaJar\n\n`\[[0-9a-z]+\] .*` dokkaJar 업데이트$
           flags: 'gmu'
-      - name: End Job If Is dokkaJar Commit
-        if: ${{ steps.check-commit.outputs.match != '' }}
-        run: exit 1
       - name: Formatting GitHub Commit Hash
         id: format_hash
         run: |
@@ -134,6 +132,7 @@ jobs:
   pullRequest:
     needs: [ createBranch, publishTest ]
     runs-on: ubuntu-latest
+    if: ${{ needs.createBranch.outputs.COMMIT_VAILD }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
