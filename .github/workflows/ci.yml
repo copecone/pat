@@ -113,7 +113,7 @@ jobs:
         uses: actions-ecosystem/action-regex-match@v2
         id: check_commit
         with:
-          text: ${{ steps.commit_name.outputs.value }}
+          text: ${{ steps.commit_info.outputs.value }}
           regex: >-
             ^Merge pull request #[0-9]+ from [0-9a-z]+\/[0-9a-z]+\]dokkaJar\n\n`\[[0-9a-z]+\] .*` dokkaJar 업데이트$
           flags: 'gmu'
