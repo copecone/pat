@@ -105,7 +105,7 @@ jobs:
       - name: Commit Name Debug
         id: commit_name
         run: |
-          MESSAGE=${{ github.event.head_commit.message }}
+          MESSAGE=$(echo "${{ github.event.head_commit.message }}")
           MESSAGE="${MESSAGE//'%'/'%25'}"
           MESSAGE="${MESSAGE//$'\n'/'%0A'}"
           MESSAGE="${MESSAGE//$'\r'/'%0D'}"
