@@ -170,16 +170,15 @@ jobs:
         with:
           add-paths: |
             docs/**
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "[${{ needs.createBranch.outputs.COMMIT_HASH }}] dokkaJar 업데이트"
           base: main
           branch: '${{ github.sha }}]dokkaJar'
-          delete-branch: true
+          commit-message: "[${{ needs.createBranch.outputs.COMMIT_HASH }}] dokkaJar 업데이트"
           title: "`[${{ needs.createBranch.outputs.COMMIT_HASH }}] ${{ github.event.head_commit.message }}` dokkaJar 업데이트"
           body: |
             dokkaJar 업데이트
             - 이 자동 생성된 Pull Request는 현재 커밋의 dokkaJar 실행 결과물입니다
-          labels:
+          labels: |
             Auto dokkaJar
           assignees: copecone
           reviewers: copecone
+          delete-branch: true
