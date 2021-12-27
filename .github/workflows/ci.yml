@@ -107,7 +107,7 @@ jobs:
         id: commit_name
         uses: mkungla/actions-set-text-output@v1
         with:
-          text: ${{ github.event.head_commit.message }
+          text: ${{ github.event.head_commit.message }}
       - name: Check Commit Name for Prevent Infinite Pull Requests
         uses: actions-ecosystem/action-regex-match@v2
         id: check-commit
