@@ -99,24 +99,22 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       COMMIT_HASH: ${{ steps.format_hash.outputs.COMMIT_HASH }}
+      COMMIT_NAME: ${{ steps.commit_name.outputs.value }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Commit Name Debug
+      - name: Commit Name Set
         id: commit_name
-        run: |
-          MESSAGE=$(echo "${{ github.event.head_commit.message }}")
-          MESSAGE="${MESSAGE//'%'/'%25'}"
-          MESSAGE="${MESSAGE//$'\n'/'%0A'}"
-          MESSAGE="${MESSAGE//$'\r'/'%0D'}"
-          echo "::set-output name=value::$MESSAGE"
+        uses: mkungla/actions-set-text-output@v1
+        with:
+          text: ${{ github.event.head_commit.message }
       - name: Check Commit Name for Prevent Infinite Pull Requests
         uses: actions-ecosystem/action-regex-match@v2
         id: check-commit
         with:
-          text: ${{ steps.commit_name.value }}
+          text: ${{ steps.commit_name.outputs.value }}
           regex: >-
-            ^Merge pull request #[0-9]+ from [0-9a-z]+\/[0-9a-z]+\]dokkaJar\n  \n  `\[[0-9a-z]+\] .*` dokkaJar 업데이트$
+            ^Merge pull request #[0-9]+ from [0-9a-z]+\/[0-9a-z]+\]dokkaJar\n\n`\[[0-9a-z]+\] .*` dokkaJar 업데이트$
           flags: 'gmu'
       - name: End Job If Is dokkaJar Commit
         if: ${{ steps.check-commit.outputs.match != '' }}
