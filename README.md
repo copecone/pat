@@ -9,7 +9,7 @@
 
 ### Paper 확장 라이브러리 ([Tap](https://github.com/monun/tap) 확장 기능 포함)
 
-- 해당 라이브러리는 [`monun`](https://github.com/monun) 본인이 원하지 않을 시 언제든지 사라질 수 있음을 안내드립니다.
+- 해당 라이브러리의 [Tap](https://github.com/monun/tap) 확장 기능은 [`monun`](https://github.com/monun) 본인이 원하지 않을 시 언제든지 사라질 수 있음을 안내드립니다.
 - `Tap 4.3.0`을 내부적으로 포함하고 있습니다.
 
 ---
