@@ -24,7 +24,7 @@
 
 ---
 
-#### Gradle
+#### Gradle (아직 작동 안함)
 
 ```kotlin
 dependencies {
