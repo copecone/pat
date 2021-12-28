@@ -1,10 +1,10 @@
 # Pat
 
-[![Java](https://img.shields.io/badge/java-17-ED8B00.svg?logo=java)](https://www.azul.com/)
-[![Kotlin](https://img.shields.io/badge/kotlin-1.6.0-585DEF.svg?logo=kotlin)](http://kotlinlang.org)
-[![Gradle](https://img.shields.io/badge/gradle-7.3-02303A.svg?logo=gradle)](https://gradle.org)
-[![GitHub](https://img.shields.io/github/license/copecone/pat)](https://www.gnu.org/licenses/gpl-3.0.html)
-[![Youtube](https://img.shields.io/badge/youtube-컨트롤D-red.svg?logo=youtube)](https://www.youtube.com/channel/UCixrFCcSLF-E0AjNO9yNaqg)
+[![Java](https://img.shields.io/badge/java-17-ED8B00.svg?style=for-the-badge&logo=java)](https://www.azul.com/)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.6.0-585DEF.svg?style=for-the-badge&logo=kotlin)](http://kotlinlang.org)
+[![Gradle](https://img.shields.io/badge/gradle-7.3-02303A.svg?style=for-the-badge&logo=gradle)](https://gradle.org)
+[![GitHub](https://img.shields.io/github/license/copecone/pat?style=for-the-badge)](https://www.gnu.org/licenses/gpl-3.0.html)
+[![Youtube](https://img.shields.io/badge/youtube-컨트롤D-red.svg?style=for-the-badge&logo=youtube)](https://www.youtube.com/channel/UCixrFCcSLF-E0AjNO9yNaqg)
 [![Github Packages Publish](https://github.com/copecone/pat/actions/workflows/publish.yml/badge.svg)](https://github.com/copecone/pat/actions/workflows/publish.yml)
 
 ### Paper 확장 라이브러리 ([Tap](https://github.com/monun/tap) 확장 기능 포함)
